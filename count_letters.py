@@ -9,9 +9,11 @@
 # not appear in the string, then it would not get added to the dictionary
 
 def count_letters(string):
+    import re
     """counts all the letters in a given string, lower and upper case"""
+    new_string = re.sub(r"[^a-zA-Z0-9]", "", string) # removing special characters from string.
     letter_dict = dict()
-    for x in string:
+    for x in new_string:
         x = x.upper()  # makes lowercase upper
         if x not in letter_dict:
             letter_dict[x] = 1
@@ -19,5 +21,6 @@ def count_letters(string):
             letter_dict[x] += 1
     return letter_dict
 
-"""Testing
-print(count_letters("AaBb"))"""
+""" Testing
+print(count_letters("Quis custodiet ipsos custodes?"))
+"""
